@@ -27,17 +27,21 @@ export default function Chat({ messages }: ChatProps) {
         </div> */}
 
         <div className="flex flex-col-reverse justify-start items-start gap-4 pt-6 pr-6 pb-6 pl-6 w-full flex-1 overflow-y-scroll overflow-x-hidden scrollbar-thumb-slate-500 scrollbar-track-black-100 scrollbar">
-          <div className="text-base text-foreground leading-normal font-medium bg-blue-200">
-            <ul>
-              { messages.map((message: Message, index: number) => {
-                return (
-                  <li key={index}>
-                    <div>{index+1} &nbsp; {message.username}: &nbsp; {message.text} &nbsp; {message.timestamp.toLocaleString()}</div>
-                  </li>
-                )}
+          <ul className="text-base text-foreground leading-normal font-medium w-full">
+            { messages.map((message: Message, index: number) => {
+              return (
+                <li key={index}>
+                  <div className="flex flex-row justify-between">
+                    <div className="flex flex-row justify-start items-center gap-4">
+                      <p className="font-extrabold">{message.username}</p>
+                      <p>{message.text}</p>
+                    </div>
+                    <div className="text-neutral-400 text-sm">{message.timestamp.toLocaleString()}</div>
+                  </div>
+                </li>
               )}
-            </ul>
-          </div>
+            )}
+          </ul>
         </div>
       </div>
     </div>
