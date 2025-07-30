@@ -16,34 +16,20 @@ export type ChatProps = {
 
 export default function Chat({ messages }: ChatProps) {
   return (
-    <div className="flex flex-col gap-4 h-full">
-      <div className="flex flex-col justify-start items-start rounded-lg border border-foreground h-full">
-        {/* <div className="flex flex-row justify-start items-center pt-3 pr-2 pb-3 pl-2 border-b border-foreground w-full">
-          <div className="flex flex-row justify-start items-start gap-1.5 pt-2.5 pr-2.5 pb-2.5 pl-2.5 h-7">
-            <img width="10px" height="10px" src="/assets/RedButton.svg" alt="Red" />
-            <img width="10px" height="10px" src="/assets/YellowButton.svg" alt="Yellow" />
-            <img width="10px" height="10px" src="/assets/GreenButton.svg" alt="Green" />
-          </div>
-        </div> */}
-
-        <div className="flex flex-col-reverse justify-start items-start gap-4 pt-6 pr-6 pb-6 pl-6 w-full flex-1 overflow-y-scroll overflow-x-hidden scrollbar-thumb-slate-500 scrollbar-track-black-100 scrollbar">
-          <ul className="text-base text-foreground leading-normal font-medium w-full">
-            { messages.map((message: Message, index: number) => {
-              return (
-                <li key={index}>
-                  <div className="flex flex-row justify-between">
-                    <div className="flex flex-row justify-start items-center gap-4">
-                      <p className="font-extrabold">{message.username}</p>
-                      <p>{message.text}</p>
-                    </div>
-                    <div className="text-neutral-400 text-sm">{message.timestamp.toLocaleString()}</div>
-                  </div>
-                </li>
-              )}
-            )}
-          </ul>
-        </div>
-      </div>
-    </div>
+    <ul className="w-full h-full min-h-0 flex flex-col justify-end overflow-y-scroll">
+      { messages.map((message: Message, index: number) => {
+        return (
+          <li key={index}>
+            <div className="flex flex-row justify-between p-2 items-center">
+              <div className="flex flex-row justify-start items-center gap-4">
+                <p className="font-extrabold">{message.username}</p>
+                <p>{message.text}</p>
+              </div>
+              <div className="text-neutral-400 text-sm">{message.timestamp.toLocaleString()}</div>
+            </div>
+          </li>
+        )}
+      )}
+    </ul>
   )
 }

@@ -13,6 +13,7 @@
     "ably": "^2.10.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "crypto": "^1.0.1",
     "lucide-react": "^0.533.0",
     "next": "15.4.4",
     "react": "19.1.0",
