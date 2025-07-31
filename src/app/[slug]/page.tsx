@@ -1,11 +1,11 @@
 import Channel from '@/components/channel'
 
-type ChannelPageProps = {
+type PageProps = {
     params: Promise<{ slug: string }>
-    searchParams?: { username?: string }
+    searchParams?: Promise<{ username?: string }>
 }
 
-export default async function ChannelPage({ params, searchParams  }: ChannelPageProps) {
+export default async function ChannelPage({ params, searchParams  }: PageProps) {
     const { slug } = await params
     const username = (await searchParams)?.username ?? 'unkwn'
 
