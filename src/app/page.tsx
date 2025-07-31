@@ -25,7 +25,7 @@ export default function Home() {
   }
 
   return (
-    <main className="box-border w-screen h-screen min-h-0 flex flex-col items-center">
+    <main className="box-border w-dvw h-dvh min-h-0 flex flex-col items-center justify-center">
       <div className="w-2/3 md:w-1/2 lg:w-1/3 h-full flex flex-col justify-center items-center">
         <Card className="w-full">
           <CardHeader>
@@ -34,7 +34,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleJoinChannel}>
-              <div className='flex flex-col gap-6'>
+              <div className='flex flex-col gap-6 text-base'>
                 <div className='grid gap-2'>
                   <Label htmlFor="username">Username</Label>
                   <Input
