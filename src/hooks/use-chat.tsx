@@ -1,7 +1,7 @@
 'use client'
 import * as Ably from 'ably';
 import { useChannel } from 'ably/react';
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 interface UseChatProps {
     channelName: string,

@@ -1,4 +1,5 @@
 import Channel from '@/components/channel'
+
 type ChannelPageProps = {
     params: Promise<{ slug: string }>
     searchParams?: { username?: string }
