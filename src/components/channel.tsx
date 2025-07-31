@@ -4,7 +4,7 @@ import * as Ably from 'ably';
 import { AblyProvider, ChannelProvider } from "ably/react"
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { PaperPlaneIcon } from "@radix-ui/react-icons"
 import { useChatScroll } from '@/hooks/use-scroll';
 import { useChat } from '@/hooks/use-chat';
@@ -44,6 +44,7 @@ function ChatWindow({ channelName, username }: ChatWindowProps) {
         if (!newMessage.trim()) return
         sendMessage(newMessage)
         setNewMessage('')
+        inputRef.current?.blur()
     },[newMessage, sendMessage])
     
     const { containerRef, scrollToBottom } = useChatScroll()
@@ -51,7 +52,7 @@ function ChatWindow({ channelName, username }: ChatWindowProps) {
         scrollToBottom()
     }, [messages, scrollToBottom])
     
-
+    const inputRef = useRef<HTMLInputElement>(null)
     return (
         <div className="flex flex-col h-full w-full bg-background text-foreground antialiased">
             {/* Messages */}
@@ -81,7 +82,8 @@ function ChatWindow({ channelName, username }: ChatWindowProps) {
             {/* Input */}
             <form onSubmit={handleSendMessage} className="flex w-full gap-2 border-t border-border p-4">
                 <Input  
-                    className={cn('rounded-full bg-background text-sm transition-all duration-300',
+                    ref={inputRef}
+                    className={cn('rounded-full bg-background text-base transition-all duration-300',
                         newMessage.trim() ? 'w-[calc(100%-36px)]' : 'w-full'
                     )}
                     type="text"
