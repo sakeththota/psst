@@ -8,6 +8,16 @@ interface ChatMessageProps {
 }
 
 export const ChatMessage = ({ message, isOwn, showHeader}: ChatMessageProps) => {
+    if (message.type === 'system') {
+        return (
+            <div className="flex justify-center my-3">
+                <span className="text-xs text-muted-foreground/60">
+                    ── {message.content} ──
+                </span>
+            </div>
+        )
+    }
+
     return (
         <div className={`flex mt-2 ${isOwn ? 'justify-end' : 'justify-start'}`}>
             <div 

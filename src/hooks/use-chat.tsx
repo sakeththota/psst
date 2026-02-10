@@ -12,6 +12,7 @@ export interface Message {
     content: string,
     username: string,
     createdAt: string,
+    type: 'message' | 'system',
 }
 
 export function useChat({ channelName, username }: UseChatProps) {
@@ -22,6 +23,7 @@ export function useChat({ channelName, username }: UseChatProps) {
                 content: message.data.content,
                 username: message.name || 'unkwn',
                 createdAt: new Date().toISOString(),
+                type: 'message',
             }
         ])
     });
@@ -34,5 +36,5 @@ export function useChat({ channelName, username }: UseChatProps) {
         [channel, username]
     )
 
-    return { messages, sendMessage }
+    return { messages, setMessages, sendMessage }
 }
