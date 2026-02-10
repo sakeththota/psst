@@ -14,15 +14,34 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 
+const ROOM_NAME_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+
 export function HeroSection() {
   const [username, setUsername] = useState('')
   const [channel, setChannel] = useState('')
+  const [error, setError] = useState('')
   const router = useRouter()
 
   const handleJoinChannel = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!username || !channel) return
-    router.push(`/${channel}?username=${encodeURIComponent(username)}`)
+    setError('')
+
+    const trimmedUsername = username.trim()
+    const trimmedChannel = channel.trim().toLowerCase()
+
+    if (!trimmedUsername) return
+
+    if (!trimmedChannel) {
+      setError('Room name is required.')
+      return
+    }
+
+    if (!ROOM_NAME_REGEX.test(trimmedChannel)) {
+      setError('Letters, numbers, and hyphens only. No spaces or special characters.')
+      return
+    }
+
+    router.push(`/${trimmedChannel}?username=${encodeURIComponent(trimmedUsername)}`)
   }
 
   return (
@@ -83,8 +102,15 @@ export function HeroSection() {
                     placeholder="Enter a room name"
                     required
                     value={channel}
-                    onChange={(e) => setChannel(e.target.value)}
+                    onChange={(e) => {
+                      setChannel(e.target.value)
+                      if (error) setError('')
+                    }}
+                    aria-invalid={!!error}
                   />
+                  {error && (
+                    <p className="text-xs text-destructive">{error}</p>
+                  )}
                 </div>
                 <Button type="submit" size="lg" className="w-full mt-1">
                   Join room
