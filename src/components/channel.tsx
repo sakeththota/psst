@@ -23,19 +23,16 @@ interface ChannelProps {
 const CHANNEL_PREFIX = 'psst:'
 
 export default function Channel({ channelName, username }: ChannelProps) {
-    const ablyRef = useRef<Ably.Realtime | null>(null)
-    if (!ablyRef.current) {
-        ablyRef.current = new Ably.Realtime({
-            key: process.env.NEXT_PUBLIC_ABLY_API_KEY,
-            clientId: username,
-            closeOnUnload: true,
-        })
-    }
+    const [ablyClient] = useState(() => new Ably.Realtime({
+        key: process.env.NEXT_PUBLIC_ABLY_API_KEY,
+        clientId: username,
+        closeOnUnload: true,
+    }))
 
     const ablyChannelName = `${CHANNEL_PREFIX}${channelName}`
 
     return (
-        <AblyProvider client={ ablyRef.current }>
+        <AblyProvider client={ ablyClient }>
             <ChannelProvider channelName={ablyChannelName}>
                 <ChatWindow channelName={channelName} ablyChannelName={ablyChannelName} username={username} />
             </ChannelProvider>
