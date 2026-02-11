@@ -1,4 +1,3 @@
-import { Github } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
@@ -20,8 +19,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="size-4" />
-              <span className="hidden sm:inline">GitHub</span>
+              Source
             </a>
           </Button>
         </nav>
