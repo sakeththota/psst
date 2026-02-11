@@ -68,7 +68,7 @@ export function HeroSection() {
             Whisper. Then vanish.
           </p>
           <p className="text-sm sm:text-base text-muted-foreground/60 leading-relaxed">
-            No accounts. No history. No traces. Just open a room, share the name, and start talking.
+            No accounts, no history, and no traces. Just open a room, share the name, and start talking.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export function HeroSection() {
                   <Input
                     id="username"
                     type="text"
-                    placeholder="What should we call you?"
+                    placeholder="Display name"
                     required
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -99,7 +99,7 @@ export function HeroSection() {
                   <Input
                     id="channel"
                     type="text"
-                    placeholder="Enter a room name"
+                    placeholder="Room name"
                     required
                     value={channel}
                     onChange={(e) => {

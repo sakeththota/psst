@@ -33,6 +33,9 @@ export function FeaturesSection() {
       <div className="mx-auto max-w-5xl">
         {/* Section header */}
         <div className="text-center mb-14 sm:mb-16">
+          <p className="text-sm font-medium text-muted-foreground mb-3 tracking-wide uppercase">
+            Features
+          </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Simple by default.{' '}
             <span className="text-muted-foreground">Private by design.</span>
