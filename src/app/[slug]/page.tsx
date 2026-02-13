@@ -10,7 +10,7 @@ export default async function ChannelPage({ params, searchParams  }: PageProps) 
     const username = (await searchParams)?.username ?? 'unkwn'
 
     return (
-        <main className="box-border w-dvw h-dvh min-h-0 flex flex-col items-center">
+        <main className="box-border w-full h-dvh min-h-0 flex flex-col items-center">
             <Channel channelName={slug} username={username} />
         </main>
     )

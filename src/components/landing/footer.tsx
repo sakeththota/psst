@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button'
 
 export function Footer() {
   return (
-    <footer className="w-full mt-auto py-8 sm:py-10 px-6 sm:px-8">
-      <div className="mx-auto max-w-5xl flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
+    <footer className="w-full mt-auto py-8 sm:py-10 px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground/60">
           &copy; {new Date().getFullYear()} Psst. All rights reserved.
         </p>

@@ -45,7 +45,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative w-full min-h-[calc(100dvh-4rem)] flex items-center overflow-hidden py-12 sm:py-16">
+    <section className="relative w-full flex items-center overflow-hidden py-16 sm:py-20 lg:py-24">
       {/* Background glow */}
       <div
         className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full opacity-[0.04]"
@@ -55,7 +55,7 @@ export function HeroSection() {
       />
 
       {/* Content - side by side on lg, stacked on mobile */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-12 lg:gap-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-12 lg:gap-16">
         {/* Left: Copy */}
         <div className="flex flex-col gap-5 text-center lg:text-left max-w-lg lg:pt-8">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">

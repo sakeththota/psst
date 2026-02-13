@@ -4,7 +4,7 @@ import Link from 'next/link'
 export function Header() {
   return (
     <header className="w-full bg-background">
-      <div className="mx-auto max-w-5xl flex items-center justify-between px-6 sm:px-8 h-16">
+      <div className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-12 h-16">
         <Link href="/" className="text-base font-bold tracking-tight">
           Psst
         </Link>

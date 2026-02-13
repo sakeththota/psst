@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
-      <body className="antialiased font-sans">
+      <body className="antialiased font-sans max-w-screen-2xl mx-auto">
         {children}
       </body>
     </html>
